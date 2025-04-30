@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<!--
+
+█▀▄▀█ █▀▀ █▀ █▀ ▄▀█ █▀▀ █▀▀   █▀▀ █▀█ █▀█   █░█   ▄▀█ ▀█▀   ▀█▀ █░█ █▀▀   █▄▄ █▀█ ▀█▀ ▀█▀ █▀█ █▀▄▀█
+█░▀░█ ██▄ ▄█ ▄█ █▀█ █▄█ ██▄   █▀░ █▄█ █▀▄   █▄█   █▀█ ░█░   ░█░ █▀█ ██▄   █▄█ █▄█ ░█░ ░█░ █▄█ █░▀░█
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anton Brade</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="C:\Users\Anton\Downloads\Antonbrade\Assets\Antonbrade favicon.png">
+    <style>
+                /* General Styles */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo img {
+            width: 120px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        header nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        section {
+            padding: 60px 20px;
+            background: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+             z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 2px black, 0 0 4px black;
+        }
+
+
+        .hero-content p {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 2px black, 0 0 4px black;
+        }
+
+        .hero-content .btn {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #222;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .hero-content .btn:hover {
+            background-color: #FFC300;
+            transform: scale(1.05);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: #000000;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #9e9e9e;
+            color:#000000;
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* quicklinks Section */
+        .quicklinks .filters {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .quicklinks .filters button {
+            padding: 12px 30px;
+            border: none;
+            background: #FFD700;
+            color: #222;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .quicklinks .filters button:hover {
+            background: #FFC300;
+            transform: scale(1.05);
+        }
+
+        /* quicklinks Grid */
+        .quicklinks .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .quicklinks .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .quicklinks .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .quicklinks .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .quicklinks .gallery-item .overlay {
+            flex-direction: column;
+        }
+
+        .quicklinks .overlay-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quicklinks .section-gallery {
+            display: none;
+            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .quicklinks .section-gallery.active {
+            display: grid;
+        }
+
+        .quicklinks .btn {
+            padding: 12px 30px;
+            background-color: #FFD700;
+            border: none;
+            color: #222;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .quicklinks .btn:hover {
+            background-color: #FFC300;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #222;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        #contact form button {
+            padding: 15px;
+            background-color: #FFD700;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #222;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #contact form button:hover {
+            background-color: #FFC300;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-icon {
+             font-size: 30px; /* Adjust the size of the icons */
+            color: #000000; /* Change to your preferred color */
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #FFD700; /* Change to your preferred hover color */
+        }
+
+        .fun-facts {
+            background: #fff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .fun-facts h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .fact-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .fact-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .fact-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:\Users\Anton\Downloads\Antonbrade\Assets\Antonbrade Logo.png" alt="Brade Studio Logo">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Hjem</a></li>
+                <li><a href="#about">Om mig</a></li>
+                <li><a href="#quicklinks">Quick Links</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="">Service</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hero" id="home">
+        <video autoplay muted loop playsinline class="background-video">
+            <source src="C:\Users\Anton\Downloads\Antonbrade\Assets\24515-343454414_small.mp4" type="video/mp4">
+            Din browser understøtter ikke video.
+          </video>
+        <div class="hero-content">
+            <h1>Hej! Jeg er Anton Brade</h1>
+            <p><cite>"Think like a man of action, act like a man of thought"</cite> - Henri Bergson</p>
+            <a href="#about"><button class="btn">Læs mere</button></a>
+        </div>
+    </div>
+    <section id="about">
+        <div class="container about">
+            <h2>Om mig</h2>
+            <p>Hej! Mit navn er Anton Brade, og jeg er en 14-årig dreng, som har lavet denne hjemmeside.
+                Jeg interesserer mig for blandt andet motocross, supercross, graffiti, grafisk design og fotografering.
+                Jeg har lavet hjemmesiden for at vise mine evner inden for områder som kodning, AI-prompting, grafisk design og fotografering.
+                Derudover kan du her finde mit CV og en liste over mine kompetencer.</p>
+            <a href="kommer-snart.html"><button class="btn">Læs mere</button></a>
+        </div>
+    </section>
+    <!-- quicklinks Section -->
+    <section id="quicklinks" class="quicklinks">
+        <div class="container">
+            <h2>Quick Links</h2>
+            <div class="gallery">
+                
+                <div class="gallery-item">
+                    <img src="C:\Users\Anton\Downloads\Antonbrade\Assets\Graphic Design.png" alt="Grafisk Design">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <h3>Grafisk Design</h3>
+                            <a href="kommer-snart.html"><button class="btn">Læs mere</button></a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="gallery-item">
+                    <img src="C:\Users\Anton\Downloads\Antonbrade\Assets\Arbejde.png" alt="Arbejde">
+                    <div class="overlay">
+                        <h3>Arbejde</h3>
+                        <a href="kommer-snart.html"><button class="btn">Læs mere</button></a>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="C:\Users\Anton\Downloads\Antonbrade\Assets\Graffiti og Interesser.png" alt="Graffiti & Intresser">
+                    <div class="overlay">
+                        <h3>Graffiti & Intresser</h3>
+                        <a href="kommer-snart.html"><button class="btn">Læs mere</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fun-facts" class="fun-facts">
+        <div class="container">
+          <h2>Fun Facts om mig</h2>
+          <div class="facts-grid">
+            <div class="fact-card">
+              <h3>💻</h3>
+              <p>Jeg byggede den her hjemmeside som 14-årig!</p>
+            </div>
+            <div class="fact-card">
+              <h3>🏍️</h3>
+              <p>Jeg elsker motorcykler og alt med en motor (pånær EV).</p>
+            </div>
+            <div class="fact-card">
+              <h3>🎨</h3>
+              <p>Jeg har lavet grafisk og web design siden jeg var 12.</p>
+            </div>
+            <div class="fact-card">
+              <h3>👕</h3>
+              <p>Jeg har en graffiti/skater stil i tøj.</p>
+            </div>
+            <!-- Tilføj flere facts hvis du vil! -->
+          </div>
+        </div>
+      </section>
+      
+      
+      
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontakt Mig!</h2>
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Dit Navn" required>
+                <input type="email" name="email" placeholder="Din Email" required>
+                <textarea name="message" placeholder="Din Besked" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Anton Brade</p>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@AntonBrade" target="_blank" class="social-icon">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@anton.bj3?_t=ZN-8vrCqqfDd7X&_r=1" target="_blank" class="social-icon">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/a.bj2010?igsh=MWkzMjBuMmRhNHU5" target="_blank" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://discord.com/users/916325267197296661" target="_blank" class="social-icon">
+                <i class="fab fa-discord"></i>
+              </a>
+          </div>
+          
+    </footer>
+</body>
+
+<script>
+    const webhookURL = "https://discord.com/api/webhooks/1367212728779014155/lVfCgD7rqrt5n7i5QVuP9NcquXn0CIgmbwiiyF7tmO-9x_2WbTFS4lwdthApiykuWBQR"; // Udskift med din egen webhook
+
+    // Funktion til at tjekke og begrænse spam via email
+    function canSendMessage(email) {
+        const storageKey = "form_submissions";
+        const submissions = JSON.parse(localStorage.getItem(storageKey)) || {};
+        const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+        if (!submissions[email]) submissions[email] = {};
+
+        // Reset hvis dato er gammel
+        if (submissions[email].date !== today) {
+            submissions[email] = { date: today, count: 0 };
+        }
+
+        if (submissions[email].count >= 5) return false;
+
+        // Opdatér og gem
+        submissions[email].count += 1;
+        submissions[email].date = today;
+        localStorage.setItem(storageKey, JSON.stringify(submissions));
+        return true;
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = this.name.value.trim();
+        const email = this.email.value.trim();
+        const message = this.message.value.trim();
+
+        if (!canSendMessage(email)) {
+            alert("Du har allerede sendt 5 beskeder i dag med denne email.");
+            return;
+        }
+
+        const embed = {
+            title: "📨 Ny besked fra kontaktformular",
+            color: 0xC8102E,
+            fields: [
+                { name: "Navn", value: name, inline: false },
+                { name: "Email", value: email, inline: false },
+                { name: "Besked", value: message, inline: false }
+            ],
+            image: {
+                url: "C:\Users\Anton\Downloads\Antonbrade\Assets\design2.png" // ← Udskift dette med din billed-URL
+            },
+            timestamp: new Date().toISOString()
+        };
+
+        fetch(webhookURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ embeds: [embed] })
+        }).then(res => {
+            if (res.ok) {
+                alert("Besked sendt!");
+                document.getElementById("contactForm").reset();
+            } else {
+                alert("Noget gik galt. Prøv igen.");
+            }
+        }).catch(err => {
+            console.error(err);
+            alert("Fejl ved afsendelse.");
+        });
+    });
+</script>
+
+</html>
+
+<!--
+
+██████╗░░█████╗░███╗░░██╗██╗████████╗  ░██████╗████████╗███████╗░█████╗░██╗░░░░░  ███╗░░░███╗██╗░░░██╗
+██╔══██╗██╔══██╗████╗░██║╚█║╚══██╔══╝  ██╔════╝╚══██╔══╝██╔════╝██╔══██╗██║░░░░░  ████╗░████║╚██╗░██╔╝
+██║░░██║██║░░██║██╔██╗██║░╚╝░░░██║░░░  ╚█████╗░░░░██║░░░█████╗░░███████║██║░░░░░  ██╔████╔██║░╚████╔╝░
+██║░░██║██║░░██║██║╚████║░░░░░░██║░░░  ░╚═══██╗░░░██║░░░██╔══╝░░██╔══██║██║░░░░░  ██║╚██╔╝██║░░╚██╔╝░░
+██████╔╝╚█████╔╝██║░╚███║░░░░░░██║░░░  ██████╔╝░░░██║░░░███████╗██║░░██║███████╗  ██║░╚═╝░██║░░░██║░░░
+╚═════╝░░╚════╝░╚═╝░░╚══╝░░░░░░╚═╝░░░  ╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝░░░╚═╝░░░
+
+░█████╗░░█████╗░██████╗░███████╗  ██████╗░██╗░░░██╗███╗░░░███╗██████╗░░█████╗░░██████╗░██████╗
+██╔══██╗██╔══██╗██╔══██╗██╔════╝  ██╔══██╗██║░░░██║████╗░████║██╔══██╗██╔══██╗██╔════╝██╔════╝
+██║░░╚═╝██║░░██║██║░░██║█████╗░░  ██║░░██║██║░░░██║██╔████╔██║██████╦╝███████║╚█████╗░╚█████╗░
+██║░░██╗██║░░██║██║░░██║██╔══╝░░  ██║░░██║██║░░░██║██║╚██╔╝██║██╔══██╗██╔══██║░╚═══██╗░╚═══██╗
+╚█████╔╝╚█████╔╝██████╔╝███████╗  ██████╔╝╚██████╔╝██║░╚═╝░██║██████╦╝██║░░██║██████╔╝██████╔╝
+░╚════╝░░╚════╝░╚═════╝░╚══════╝  ╚═════╝░░╚═════╝░╚═╝░░░░░╚═╝╚═════╝░╚═╝░░╚═╝╚═════╝░╚═════╝░
+-->

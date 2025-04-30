@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--
+
+█▀▄▀█ █▀▀ █▀ █▀ ▄▀█ █▀▀ █▀▀   █▀▀ █▀█ █▀█   █░█   ▄▀█ ▀█▀   ▀█▀ █░█ █▀▀   █▄▄ █▀█ ▀█▀ ▀█▀ █▀█ █▀▄▀█
+█░▀░█ ██▄ ▄█ ▄█ █▀█ █▄█ ██▄   █▀░ █▄█ █▀▄   █▄█   █▀█ ░█░   ░█░ █▀█ ██▄   █▄█ █▄█ ░█░ ░█░ █▄█ █░▀░█
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafisk Design | AB</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="C:\Users\Anton\Downloads\Antonbrade\Assets\Antonbrade favicon.png">
+    <style>
+                /* General Styles */
+                * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #222;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo img {
+            width: 120px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+        }
+
+        header nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        section {
+            padding: 60px 20px;
+            background: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+             z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 2px black, 0 0 4px black;
+        }
+
+
+        .hero-content p {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 2px black, 0 0 4px black;
+        }
+
+        .hero-content .btn {
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #222;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .hero-content .btn:hover {
+            background-color: #FFC300;
+            transform: scale(1.05);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: #000000;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 40px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #9e9e9e;
+            color:#000000;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #222;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        #contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #contact form input,
+        #contact form textarea {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        #contact form button {
+            padding: 15px;
+            background-color: #FFD700;
+            border: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #222;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #contact form button:hover {
+            background-color: #FFC300;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+        }
+
+        footer .social-icons a {
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-icon {
+             font-size: 30px; /* Adjust the size of the icons */
+            color: #000000; /* Change to your preferred color */
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            color: #FFD700; /* Change to your preferred hover color */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:\Users\Anton\Downloads\Antonbrade\Assets\Antonbrade Logo.png" alt="Brade Studio Logo">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="#about">Om mig</a></li>
+                <li><a href="#quicklinks">Quick Links</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="">Service</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="graphic-design" class="graphic-design">
+        <div class="container">
+          <h1 style="font-size: 50px;">Kommer Snart!</h1>
+          <p style="font-size: 25px;">Denne hjemmeside er stadig under opbygning, resten af den kommer meget snart!</p>
+          <a href="index.html"><button class="btn">Tilbage til start</button></a>
+            <br>
+          <br>
+          <br>
+        </div>
+      </section>
+      
+      
+      
+      
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontakt Mig!</h2>
+            <form action="#" method="POST">
+                <input type="text" name="name" placeholder="Dit Navn" required>
+                <input type="email" name="email" placeholder="Din Email" required>
+                <textarea name="message" placeholder="Din Besked" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Anton Brade</p>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@AntonBrade" target="_blank" class="social-icon">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/@anton.bj3?_t=ZN-8vrCqqfDd7X&_r=1" target="_blank" class="social-icon">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/a.bj2010?igsh=MWkzMjBuMmRhNHU5" target="_blank" class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://discord.com/users/916325267197296661" target="_blank" class="social-icon">
+                <i class="fab fa-discord"></i>
+              </a>
+          </div>
+          
+    </footer>
+</body>
+</html>
+
+<!--
+
+██████╗░░█████╗░███╗░░██╗██╗████████╗  ░██████╗████████╗███████╗░█████╗░██╗░░░░░  ███╗░░░███╗██╗░░░██╗
+██╔══██╗██╔══██╗████╗░██║╚█║╚══██╔══╝  ██╔════╝╚══██╔══╝██╔════╝██╔══██╗██║░░░░░  ████╗░████║╚██╗░██╔╝
+██║░░██║██║░░██║██╔██╗██║░╚╝░░░██║░░░  ╚█████╗░░░░██║░░░█████╗░░███████║██║░░░░░  ██╔████╔██║░╚████╔╝░
+██║░░██║██║░░██║██║╚████║░░░░░░██║░░░  ░╚═══██╗░░░██║░░░██╔══╝░░██╔══██║██║░░░░░  ██║╚██╔╝██║░░╚██╔╝░░
+██████╔╝╚█████╔╝██║░╚███║░░░░░░██║░░░  ██████╔╝░░░██║░░░███████╗██║░░██║███████╗  ██║░╚═╝░██║░░░██║░░░
+╚═════╝░░╚════╝░╚═╝░░╚══╝░░░░░░╚═╝░░░  ╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝░░░╚═╝░░░
+
+░█████╗░░█████╗░██████╗░███████╗  ██████╗░██╗░░░██╗███╗░░░███╗██████╗░░█████╗░░██████╗░██████╗
+██╔══██╗██╔══██╗██╔══██╗██╔════╝  ██╔══██╗██║░░░██║████╗░████║██╔══██╗██╔══██╗██╔════╝██╔════╝
+██║░░╚═╝██║░░██║██║░░██║█████╗░░  ██║░░██║██║░░░██║██╔████╔██║██████╦╝███████║╚█████╗░╚█████╗░
+██║░░██╗██║░░██║██║░░██║██╔══╝░░  ██║░░██║██║░░░██║██║╚██╔╝██║██╔══██╗██╔══██║░╚═══██╗░╚═══██╗
+╚█████╔╝╚█████╔╝██████╔╝███████╗  ██████╔╝╚██████╔╝██║░╚═╝░██║██████╦╝██║░░██║██████╔╝██████╔╝
+░╚════╝░░╚════╝░╚═════╝░╚══════╝  ╚═════╝░░╚═════╝░╚═╝░░░░░╚═╝╚═════╝░╚═╝░░╚═╝╚═════╝░╚═════╝░
+-->
